@@ -59,6 +59,10 @@
     NSLog(@"Going to settings");
     [self performSegueWithIdentifier:@"settingsSegue" sender:self];
 }
+- (IBAction)onAddButtonPressed:(id)sender {
+
+    [self performSegueWithIdentifier:@"servicesToAddSegue" sender:self];
+}
 
 //tells the table view how many cells there will be
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

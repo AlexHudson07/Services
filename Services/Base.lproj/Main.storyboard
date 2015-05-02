@@ -39,6 +39,65 @@
             </objects>
             <point key="canvasLocation" x="1080" y="335"/>
         </scene>
+        <!--Posting View Controller-->
+        <scene sceneID="mRc-gv-bGt">
+            <objects>
+                <viewController id="YUj-9f-7HJ" customClass="PostingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zzy-7J-b0Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="g3k-Mc-t1J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9jO-2P-huv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2X-fY-KRd">
+                                <rect key="frame" x="45" y="177" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xA-iU-Nls">
+                                <rect key="frame" x="47" y="301" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8JF-3X-peF">
+                                <rect key="frame" x="166" y="301" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LYW-bI-EhR">
+                                <rect key="frame" x="84" y="506" width="32" height="30"/>
+                                <state key="normal" title="Post">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onPostButtonPressed:" destination="YUj-9f-7HJ" eventType="touchUpInside" id="hRI-Yg-gq7"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bxy-Fu-iWk">
+                                <rect key="frame" x="152" y="98" width="170" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="YUj-9f-7HJ" id="GGp-dD-Jed"/>
+                                    <outlet property="delegate" destination="YUj-9f-7HJ" id="7By-o4-F0o"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="catagoryPicker" destination="bxy-Fu-iWk" id="fBF-5Y-QpR"/>
+                        <outlet property="descriptionTextView" destination="8JF-3X-peF" id="oqO-Ca-SW9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IaB-kx-eqH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1859" y="-365"/>
+        </scene>
         <!--Services View Controller-->
         <scene sceneID="uKw-yi-Yij">
             <objects>
@@ -109,25 +168,40 @@
                                     <action selector="toggleControl:" destination="C6G-xJ-wAP" eventType="valueChanged" id="cUl-bw-sHO"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awU-0V-qu4">
+                                <rect key="frame" x="510" y="55" width="22" height="22"/>
+                                <connections>
+                                    <action selector="onAddButtonPressed:" destination="C6G-xJ-wAP" eventType="touchUpInside" id="NlK-fk-5Gg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.61960784310000006" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="3LA-K6-Q9Y" firstAttribute="top" secondItem="IA2-ey-yck" secondAttribute="topMargin" constant="82" id="5T6-WT-PfL"/>
                             <constraint firstItem="pgQ-p0-N4y" firstAttribute="top" secondItem="3LA-K6-Q9Y" secondAttribute="bottom" id="8PQ-NE-ga7"/>
                             <constraint firstItem="3LA-K6-Q9Y" firstAttribute="leading" secondItem="IA2-ey-yck" secondAttribute="leadingMargin" constant="-16" id="9nA-lc-m9D"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="awU-0V-qu4" secondAttribute="trailing" constant="52" id="OZI-QW-Rsw"/>
                             <constraint firstItem="pgQ-p0-N4y" firstAttribute="top" secondItem="3LA-K6-Q9Y" secondAttribute="bottom" id="QeY-Iz-7Xv"/>
                             <constraint firstItem="3LA-K6-Q9Y" firstAttribute="top" secondItem="IA2-ey-yck" secondAttribute="topMargin" constant="82" id="Qex-gc-si6"/>
                             <constraint firstItem="k9q-fw-4jd" firstAttribute="top" secondItem="IA2-ey-yck" secondAttribute="topMargin" constant="52" id="Ucg-c0-blh"/>
                             <constraint firstAttribute="centerX" secondItem="k9q-fw-4jd" secondAttribute="centerX" id="YyK-8k-WUU"/>
+                            <constraint firstItem="awU-0V-qu4" firstAttribute="top" secondItem="IA2-ey-yck" secondAttribute="topMargin" constant="55" id="d9a-PN-ZEg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3LA-K6-Q9Y" secondAttribute="trailing" constant="-16" id="dz5-nb-6R2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3LA-K6-Q9Y" secondAttribute="trailing" constant="-16" id="h7Z-Uj-4dT"/>
+                            <constraint firstItem="awU-0V-qu4" firstAttribute="top" secondItem="SXb-Bg-U96" secondAttribute="bottom" id="lOB-Xf-ars"/>
                             <constraint firstItem="3LA-K6-Q9Y" firstAttribute="leading" secondItem="IA2-ey-yck" secondAttribute="leadingMargin" constant="-16" id="s0e-jI-sky"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="lOB-Xf-ars"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="segmentedControl" destination="k9q-fw-4jd" id="LUX-D4-wf3"/>
                         <outlet property="servicesTableView" destination="3LA-K6-Q9Y" id="68G-9a-sol"/>
                         <segue destination="X2B-RC-eu1" kind="show" identifier="settingsSegue" id="etb-IA-R3z"/>
+                        <segue destination="YUj-9f-7HJ" kind="show" identifier="servicesToAddSegue" id="qIL-FM-7YH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="glZ-dw-fyR" userLabel="First Responder" sceneMemberID="firstResponder"/>
