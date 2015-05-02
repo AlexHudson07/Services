@@ -12,9 +12,12 @@
 @interface PostingViewController ()<UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextView *descriptionTextView;
-@property (strong, nonatomic) IBOutlet UIPickerView *catagoryPicker;
+@property (strong, nonatomic) IBOutlet UIPickerView *categoryPicker;
 @property (strong, nonatomic) NSArray *pickerData;
-@property (strong, nonatomic) NSArray *catagoriesArray;
+@property (strong, nonatomic) NSArray *categoriesArray;
+@property (strong, nonatomic) NSString *category;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *wantingOrProvidingSegmentedControl;
+@property BOOL iAmProviding;
 
 @end
 
@@ -25,16 +28,17 @@
 
     self.navigationItem.title = @"Post";
 
-    self.pickerData = @[ @"Electricians", @"Plumber"];
-
+  //  self.pickerData = @[ @"Electricians", @"Plumber"];
 
     [PFCloud callFunctionInBackground:@"categories"
                        withParameters:@{}
-                                block:^(NSArray *result, NSError *error) {
+                                block:^(NSDictionary *result, NSError *error) {
                                     if (!error) {
                                         // result is @"Hello world!"
-                                        self.catagoriesArray = result;
-                                        [self.catagoryPicker reloadAllComponents];
+                                        NSDictionary *dictionary = result;
+
+                                        self.pickerData = [dictionary objectForKey:@"categories"];
+                                        [self.categoryPicker reloadAllComponents];
                                     }
                                 }];
 
@@ -55,32 +59,32 @@
 }
 - (IBAction)onPostButtonPressed:(id)sender {
 
-
-    PFObject *want = [PFObject objectWithClassName:@"Want"];
-    want[@"category"] = @"Medical/Doctor";
-    want[@"city"] = @"Miami";
+    NSString * string;
+    if (self.iAmProviding) {
+        string = @"Provide";
+    } else {
+        string = @"Want";
+    }
+    PFObject *want = [PFObject objectWithClassName:string];
+    want[@"category"] = @"Repairs/Electrician";
     want[@"description"] = self.descriptionTextView.text;
+    want[@"city"] = @"Miami";
+    want[@"state"] = @"Florida";
+    want[@"country"] = @"USA";
     want[@"screenName"] = [PFUser currentUser].username;
-
-//    if ([self.catagoryPicker selectedRowInComponent:0] == 0){
-//
-//        want[@"location"] = @"Chicago";
-//    }
-//
-//    if ([self.catagoryPicker selectedRowInComponent:0] == 1){
-//
-//        /// NSLog(@"test");
-//    }
+    want[@"user"] = [PFUser currentUser].objectId;
 
     [want saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
 
              NSLog(@"test");
+
+
+            
         } else {
             // There was a problem, check error.description
         }
     }];
-    
 }
 
 #pragma mark - Picker Methods
@@ -106,16 +110,9 @@
 // Catpure the picker view selection
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    if (row == 0) {
-        //   NSLog(@"Atlanta");
-    }
-    if (row == 1){
-        //    NSLog(@"Detroit");
-    }
-    if (row == 2) {
-        //     NSLog(@"Chicago");
-    }
+    self.category = self.pickerData[row];
 
+    NSLog(@"Categary to be posted: %@", self.category);
 }
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
@@ -132,6 +129,18 @@
     tView.text=[self.pickerData objectAtIndex:row];
     tView.textAlignment = NSTextAlignmentCenter;
     return tView;
+}
+
+- (IBAction)onSegmentPressed:(UISegmentedControl *)control {
+
+    if (control.selectedSegmentIndex == 0) {
+        NSLog(@"I want a service");
+        self.iAmProviding = false;
+    } else{
+        NSLog(@"I want to provide a service");
+        self.iAmProviding = true;
+    }
+
 }
 
 @end
