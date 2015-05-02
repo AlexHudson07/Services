@@ -51,17 +51,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3LA-K6-Q9Y">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="154" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3LA-K6-Q9Y">
+                                <rect key="frame" x="0.0" y="82" width="600" height="518"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="QNR-1a-6t9">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="154" id="QNR-1a-6t9" customClass="ServiceCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QNR-1a-6t9" id="PDT-F4-j7S">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNm-Qn-dpi">
+                                                    <rect key="frame" x="8" y="49" width="119" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Matches" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1k-ry-AU0">
+                                                    <rect key="frame" x="251" y="49" width="66" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWq-5V-j6O">
+                                                    <rect key="frame" x="159" y="49" width="60" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="categoryLabel" destination="JNm-Qn-dpi" id="8cN-JW-CQb"/>
+                                            <outlet property="cityLabel" destination="eWq-5V-j6O" id="wgj-oa-gn0"/>
+                                            <outlet property="matchesLabel" destination="S1k-ry-AU0" id="U07-aJ-WgC"/>
                                             <segue destination="ZJh-gb-dwu" kind="show" identifier="detailSegue" id="YEE-A1-hHz"/>
                                         </connections>
                                     </tableViewCell>
@@ -71,16 +94,39 @@
                                     <outlet property="delegate" destination="C6G-xJ-wAP" id="W0b-ZX-ZTw"/>
                                 </connections>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="k9q-fw-4jd">
+                                <rect key="frame" x="239" y="52" width="123" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="123" id="PoS-iW-FnC"/>
+                                    <constraint firstAttribute="height" constant="28" id="uf9-sX-1pj"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Need"/>
+                                    <segment title="Provide"/>
+                                </segments>
+                                <color key="tintColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="toggleControl:" destination="C6G-xJ-wAP" eventType="valueChanged" id="cUl-bw-sHO"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.61960784310000006" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="3LA-K6-Q9Y" firstAttribute="top" secondItem="IA2-ey-yck" secondAttribute="topMargin" id="5T6-WT-PfL"/>
+                            <constraint firstItem="3LA-K6-Q9Y" firstAttribute="top" secondItem="IA2-ey-yck" secondAttribute="topMargin" constant="82" id="5T6-WT-PfL"/>
                             <constraint firstItem="pgQ-p0-N4y" firstAttribute="top" secondItem="3LA-K6-Q9Y" secondAttribute="bottom" id="8PQ-NE-ga7"/>
+                            <constraint firstItem="3LA-K6-Q9Y" firstAttribute="leading" secondItem="IA2-ey-yck" secondAttribute="leadingMargin" constant="-16" id="9nA-lc-m9D"/>
+                            <constraint firstItem="pgQ-p0-N4y" firstAttribute="top" secondItem="3LA-K6-Q9Y" secondAttribute="bottom" id="QeY-Iz-7Xv"/>
+                            <constraint firstItem="3LA-K6-Q9Y" firstAttribute="top" secondItem="IA2-ey-yck" secondAttribute="topMargin" constant="82" id="Qex-gc-si6"/>
+                            <constraint firstItem="k9q-fw-4jd" firstAttribute="top" secondItem="IA2-ey-yck" secondAttribute="topMargin" constant="52" id="Ucg-c0-blh"/>
+                            <constraint firstAttribute="centerX" secondItem="k9q-fw-4jd" secondAttribute="centerX" id="YyK-8k-WUU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3LA-K6-Q9Y" secondAttribute="trailing" constant="-16" id="dz5-nb-6R2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3LA-K6-Q9Y" secondAttribute="trailing" constant="-16" id="h7Z-Uj-4dT"/>
                             <constraint firstItem="3LA-K6-Q9Y" firstAttribute="leading" secondItem="IA2-ey-yck" secondAttribute="leadingMargin" constant="-16" id="s0e-jI-sky"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="segmentedControl" destination="k9q-fw-4jd" id="LUX-D4-wf3"/>
+                        <outlet property="servicesTableView" destination="3LA-K6-Q9Y" id="68G-9a-sol"/>
                         <segue destination="X2B-RC-eu1" kind="show" identifier="settingsSegue" id="etb-IA-R3z"/>
                     </connections>
                 </viewController>
@@ -158,8 +204,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="EmailTextField" destination="uLb-ET-5hb" id="jQW-Jr-Lxn"/>
                         <outlet property="cityTextField" destination="pAh-7C-vYb" id="Yi7-eZ-k2Z"/>
+                        <outlet property="emailTextField" destination="uLb-ET-5hb" id="Fw3-Ob-KR4"/>
                         <outlet property="nameTextField" destination="QMK-mf-LJt" id="7Gs-nA-Lb1"/>
                         <outlet property="phoneTextField" destination="4sh-eZ-rYt" id="N5d-7O-jlp"/>
                     </connections>

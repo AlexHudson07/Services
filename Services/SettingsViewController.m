@@ -13,7 +13,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *cityTextField;
 @property (strong, nonatomic) IBOutlet UITextField *phoneTextField;
-@property (strong, nonatomic) IBOutlet UITextField *EmailTextField;
+@property (strong, nonatomic) IBOutlet UITextField *emailTextField;
 
 @end
 
@@ -22,7 +22,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Settings";
-    // Do any additional setup after loading the view.
+
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(textFieldShouldReturn:)];
+
+    [self.view addGestureRecognizer:tap];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBarHidden = NO;
+
+}
+
+#pragma mark - UI Methods
+//resigns the keyboard when the user presses the return key
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+
+    [self.nameTextField resignFirstResponder];
+    [self.cityTextField resignFirstResponder];
+    [self.phoneTextField resignFirstResponder];
+    [self.emailTextField resignFirstResponder];
+
+    return YES;
 }
 
 - (IBAction)onLogOutButtonPressed:(id)sender {
