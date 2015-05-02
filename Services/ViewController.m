@@ -11,6 +11,7 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface ViewController ()
+@property (strong, nonatomic) IBOutlet UIButton *myButton;
 
 @end
 
@@ -23,11 +24,27 @@
     loginButton.center = self.view.center;
     [self.view addSubview:loginButton];
     // Do any additional setup after loading the view, typically from a nib.
+
+    [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
+
+    self.myButton.enabled = false;
+
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [self performSegueWithIdentifier:@"servicesSegue" sender:self];
+    }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewWillAppear:(BOOL)animated{
+
+    if ([FBSDKAccessToken currentAccessToken]) {
+        // User is logged in, do work such as go to next view controller.
+
+        self.myButton.enabled = true;
+    }
+}
+
+- (IBAction)onButtonPressed:(id)sender {
+    [self performSegueWithIdentifier:@"servicesSegue" sender:self];
 }
 
 @end

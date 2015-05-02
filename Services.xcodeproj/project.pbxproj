@@ -17,6 +17,8 @@
 		5DACEF3B1AF5089800E0D3FA /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DACEF381AF5089800E0D3FA /* FBSDKCoreKit.framework */; };
 		5DACEF3C1AF5089800E0D3FA /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DACEF391AF5089800E0D3FA /* FBSDKLoginKit.framework */; };
 		5DACEF3D1AF5089800E0D3FA /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DACEF3A1AF5089800E0D3FA /* FBSDKShareKit.framework */; };
+		5DACEF431AF5123900E0D3FA /* ServicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DACEF421AF5123900E0D3FA /* ServicesViewController.m */; };
+		5DACEF461AF5169F00E0D3FA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DACEF451AF5169F00E0D3FA /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,10 @@
 		5DACEF381AF5089800E0D3FA /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		5DACEF391AF5089800E0D3FA /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		5DACEF3A1AF5089800E0D3FA /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		5DACEF411AF5123900E0D3FA /* ServicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesViewController.h; sourceTree = "<group>"; };
+		5DACEF421AF5123900E0D3FA /* ServicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicesViewController.m; sourceTree = "<group>"; };
+		5DACEF441AF5169F00E0D3FA /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		5DACEF451AF5169F00E0D3FA /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,11 +99,15 @@
 		5DACEF0B1AF5026700E0D3FA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5DACEF161AF5026700E0D3FA /* Main.storyboard */,
 				5DACEF101AF5026700E0D3FA /* AppDelegate.h */,
 				5DACEF111AF5026700E0D3FA /* AppDelegate.m */,
 				5DACEF131AF5026700E0D3FA /* ViewController.h */,
 				5DACEF141AF5026700E0D3FA /* ViewController.m */,
-				5DACEF161AF5026700E0D3FA /* Main.storyboard */,
+				5DACEF411AF5123900E0D3FA /* ServicesViewController.h */,
+				5DACEF421AF5123900E0D3FA /* ServicesViewController.m */,
+				5DACEF441AF5169F00E0D3FA /* DetailViewController.h */,
+				5DACEF451AF5169F00E0D3FA /* DetailViewController.m */,
 				5DACEF191AF5026700E0D3FA /* Images.xcassets */,
 				5DACEF1B1AF5026700E0D3FA /* LaunchScreen.xib */,
 				5DACEF0C1AF5026700E0D3FA /* Supporting Files */,
@@ -231,8 +241,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DACEF461AF5169F00E0D3FA /* DetailViewController.m in Sources */,
 				5DACEF151AF5026700E0D3FA /* ViewController.m in Sources */,
 				5DACEF121AF5026700E0D3FA /* AppDelegate.m in Sources */,
+				5DACEF431AF5123900E0D3FA /* ServicesViewController.m in Sources */,
 				5DACEF0F1AF5026700E0D3FA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
