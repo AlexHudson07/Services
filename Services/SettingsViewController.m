@@ -7,6 +7,7 @@
 //
 
 #import "SettingsViewController.h"
+#import "Parse/Parse.h"
 
 @interface SettingsViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
@@ -22,6 +23,11 @@
     [super viewDidLoad];
     self.navigationItem.title = @"Settings";
     // Do any additional setup after loading the view.
+}
+
+- (IBAction)onLogOutButtonPressed:(id)sender {
+
+    [PFUser logOut];
 }
 
 @end
