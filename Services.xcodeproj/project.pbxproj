@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D3AC9131AF5241400A5C486 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3AC9121AF5241400A5C486 /* SettingsViewController.m */; };
 		5DACEF0F1AF5026700E0D3FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DACEF0E1AF5026700E0D3FA /* main.m */; };
 		5DACEF121AF5026700E0D3FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DACEF111AF5026700E0D3FA /* AppDelegate.m */; };
 		5DACEF151AF5026700E0D3FA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DACEF141AF5026700E0D3FA /* ViewController.m */; };
@@ -32,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D3AC9111AF5241400A5C486 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		5D3AC9121AF5241400A5C486 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		5DACEF091AF5026700E0D3FA /* Services.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Services.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DACEF0D1AF5026700E0D3FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DACEF0E1AF5026700E0D3FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -108,6 +111,8 @@
 				5DACEF421AF5123900E0D3FA /* ServicesViewController.m */,
 				5DACEF441AF5169F00E0D3FA /* DetailViewController.h */,
 				5DACEF451AF5169F00E0D3FA /* DetailViewController.m */,
+				5D3AC9111AF5241400A5C486 /* SettingsViewController.h */,
+				5D3AC9121AF5241400A5C486 /* SettingsViewController.m */,
 				5DACEF191AF5026700E0D3FA /* Images.xcassets */,
 				5DACEF1B1AF5026700E0D3FA /* LaunchScreen.xib */,
 				5DACEF0C1AF5026700E0D3FA /* Supporting Files */,
@@ -244,6 +249,7 @@
 				5DACEF461AF5169F00E0D3FA /* DetailViewController.m in Sources */,
 				5DACEF151AF5026700E0D3FA /* ViewController.m in Sources */,
 				5DACEF121AF5026700E0D3FA /* AppDelegate.m in Sources */,
+				5D3AC9131AF5241400A5C486 /* SettingsViewController.m in Sources */,
 				5DACEF431AF5123900E0D3FA /* ServicesViewController.m in Sources */,
 				5DACEF0F1AF5026700E0D3FA /* main.m in Sources */,
 			);
@@ -448,6 +454,7 @@
 				5DACEF2E1AF5026700E0D3FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5DACEF2F1AF5026700E0D3FA /* Build configuration list for PBXNativeTarget "ServicesTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +463,7 @@
 				5DACEF311AF5026700E0D3FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

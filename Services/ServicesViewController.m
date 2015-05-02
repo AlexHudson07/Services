@@ -18,9 +18,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     self.servicesArray = @[@1 , @2];
+
+    self.navigationItem.title = @"Services";
+
+    UIImage *sprocket= [UIImage imageNamed:@"sprocket"];
+    UIButton *face1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    face1.bounds = CGRectMake( 10, 0, sprocket.size.width, sprocket.size.height );
+    [face1 addTarget:self action:@selector(goToSettings) forControlEvents:UIControlEventTouchUpInside];
+    [face1 setImage:sprocket forState:UIControlStateNormal];
+    UIBarButtonItem *backButton1 = [[UIBarButtonItem alloc] initWithCustomView:face1];
+    self.navigationItem.rightBarButtonItem = backButton1;
     // Do any additional setup after loading the view.
+}
+
+-(void)goToSettings{
+    NSLog(@"Going to settings");
+    [self performSegueWithIdentifier:@"settingsSegue" sender:self];
 }
 
 //tells the table view how many cells there will be
@@ -44,6 +58,5 @@
 
       //  [self performSegueWithIdentifier:@"detailSegue" sender:self];
 }
-
 
 @end

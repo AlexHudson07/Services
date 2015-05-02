@@ -16,6 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.navigationItem.title = @"Details";
     // Do any additional setup after loading the view.
 }
 
