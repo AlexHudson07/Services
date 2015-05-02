@@ -9,8 +9,10 @@
 #import "ViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 
-@interface ViewController ()<FBSDKLoginButtonDelegate>
+
+@interface ViewController ()//<FBSDKLoginButtonDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *myButton;
 
 @end
@@ -20,19 +22,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    loginButton.center = self.view.center;
-    loginButton.delegate = self;
-    [self.view addSubview:loginButton];
-    // Do any additional setup after loading the view, typically from a nib.
-
-    [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
-
- //   self.myButton.enabled = false;
-
-    if ([FBSDKAccessToken currentAccessToken]) {
-        [self performSegueWithIdentifier:@"servicesSegue" sender:self];
-    }
+//    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+//    loginButton.center = self.view.center;
+//    loginButton.delegate = self;
+//    [self.view addSubview:loginButton];
+//    // Do any additional setup after loading the view, typically from a nib.
+//
+//    [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
+//
+// //   self.myButton.enabled = false;
+//
+//    if ([FBSDKAccessToken currentAccessToken]) {
+//        [self performSegueWithIdentifier:@"servicesSegue" sender:self];
+//    }
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -42,24 +44,57 @@
 //
 //        self.myButton.enabled = true;
 //    }
-}
 
-- (IBAction)onButtonPressed:(id)sender {
-  //  [self performSegueWithIdentifier:@"servicesSegue" sender:self];
-}
+    if ([PFUser currentUser] || [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
 
--(void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error{
-
-   // [self performSegueWithIdentifier:@"servicesSegue" sender:self];
-
-    if (result.grantedPermissions && !error) {
         [self performSegueWithIdentifier:@"servicesSegue" sender:self];
     }
 }
 
--(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
+- (IBAction)onButtonPressed:(id)sender {
+  //  [self performSegueWithIdentifier:@"servicesSegue" sender:self];
 
-    NSLog(@"logged out");
+    [PFFacebookUtils logInInBackgroundWithPublishPermissions:@[ @"publish_actions" ] block:^(PFUser *user, NSError *error) {
+        if (!user) {
+            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+        } else {
+            NSLog(@"User now has publish permissions!");
+            [self performSegueWithIdentifier:@"servicesSegue" sender:self];
+        }
+    }];
 }
+
+//-(void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error{
+//
+//   // [self performSegueWithIdentifier:@"servicesSegue" sender:self];
+//
+//
+////    [PFFacebookUtils logInInBackgroundWithReadPermissions:permissions block:^(PFUser *user, NSError *error) {
+////        if (!user) {
+////            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+////        } else if (user.isNew) {
+////            NSLog(@"User signed up and logged in through Facebook!");
+////        } else {
+////            NSLog(@"User logged in through Facebook!");
+////        }
+////    }];
+//
+//    if (result.grantedPermissions && !error) {
+//        [PFFacebookUtils logInInBackgroundWithPublishPermissions:@[ @"publish_actions" ] block:^(PFUser *user, NSError *error) {
+//            if (!user) {
+//                NSLog(@"Uh oh. The user cancelled the Facebook login.");
+//            } else {
+//                NSLog(@"User now has publish permissions!");
+//                [self performSegueWithIdentifier:@"servicesSegue" sender:self];
+//
+//            }
+//        }];
+//    }
+//}
+//
+//-(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
+//
+//    NSLog(@"logged out");
+//}
 
 @end

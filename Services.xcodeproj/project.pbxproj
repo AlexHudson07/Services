@@ -11,7 +11,6 @@
 		5D3AC9391AF52B7200A5C486 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3AC9331AF52B7200A5C486 /* Bolts.framework */; };
 		5D3AC93A1AF52B7200A5C486 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3AC9341AF52B7200A5C486 /* Parse.framework */; };
 		5D3AC93B1AF52B7200A5C486 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3AC9351AF52B7200A5C486 /* ParseCrashReporting.framework */; };
-		5D3AC93C1AF52B7200A5C486 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3AC9361AF52B7200A5C486 /* ParseFacebookUtils.framework */; };
 		5D3AC93D1AF52B7200A5C486 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3AC9371AF52B7200A5C486 /* ParseFacebookUtilsV4.framework */; };
 		5D3AC93E1AF52B7200A5C486 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3AC9381AF52B7200A5C486 /* ParseUI.framework */; };
 		5D3AC9401AF52D1300A5C486 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3AC93F1AF52D1300A5C486 /* Accounts.framework */; };
@@ -56,7 +55,6 @@
 		5D3AC9331AF52B7200A5C486 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		5D3AC9341AF52B7200A5C486 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		5D3AC9351AF52B7200A5C486 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
-		5D3AC9361AF52B7200A5C486 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		5D3AC9371AF52B7200A5C486 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		5D3AC9381AF52B7200A5C486 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		5D3AC93F1AF52D1300A5C486 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -111,7 +109,6 @@
 				5D3AC9421AF52D1C00A5C486 /* SystemConfiguration.framework in Frameworks */,
 				5D3AC9401AF52D1300A5C486 /* Accounts.framework in Frameworks */,
 				5D3AC93E1AF52B7200A5C486 /* ParseUI.framework in Frameworks */,
-				5D3AC93C1AF52B7200A5C486 /* ParseFacebookUtils.framework in Frameworks */,
 				5DACEF3C1AF5089800E0D3FA /* FBSDKLoginKit.framework in Frameworks */,
 				5D3AC93D1AF52B7200A5C486 /* ParseFacebookUtilsV4.framework in Frameworks */,
 				5D3AC93B1AF52B7200A5C486 /* ParseCrashReporting.framework in Frameworks */,
@@ -164,7 +161,6 @@
 				5D3AC9331AF52B7200A5C486 /* Bolts.framework */,
 				5D3AC9341AF52B7200A5C486 /* Parse.framework */,
 				5D3AC9351AF52B7200A5C486 /* ParseCrashReporting.framework */,
-				5D3AC9361AF52B7200A5C486 /* ParseFacebookUtils.framework */,
 				5D3AC9371AF52B7200A5C486 /* ParseFacebookUtilsV4.framework */,
 				5D3AC9381AF52B7200A5C486 /* ParseUI.framework */,
 			);
