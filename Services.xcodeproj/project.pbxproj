@@ -14,6 +14,9 @@
 		5DACEF1A1AF5026700E0D3FA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DACEF191AF5026700E0D3FA /* Images.xcassets */; };
 		5DACEF1D1AF5026700E0D3FA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DACEF1B1AF5026700E0D3FA /* LaunchScreen.xib */; };
 		5DACEF291AF5026700E0D3FA /* ServicesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DACEF281AF5026700E0D3FA /* ServicesTests.m */; };
+		5DACEF3B1AF5089800E0D3FA /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DACEF381AF5089800E0D3FA /* FBSDKCoreKit.framework */; };
+		5DACEF3C1AF5089800E0D3FA /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DACEF391AF5089800E0D3FA /* FBSDKLoginKit.framework */; };
+		5DACEF3D1AF5089800E0D3FA /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DACEF3A1AF5089800E0D3FA /* FBSDKShareKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		5DACEF221AF5026700E0D3FA /* ServicesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ServicesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DACEF271AF5026700E0D3FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DACEF281AF5026700E0D3FA /* ServicesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServicesTests.m; sourceTree = "<group>"; };
+		5DACEF381AF5089800E0D3FA /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		5DACEF391AF5089800E0D3FA /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		5DACEF3A1AF5089800E0D3FA /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +53,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DACEF3C1AF5089800E0D3FA /* FBSDKLoginKit.framework in Frameworks */,
+				5DACEF3B1AF5089800E0D3FA /* FBSDKCoreKit.framework in Frameworks */,
+				5DACEF3D1AF5089800E0D3FA /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +75,9 @@
 				5DACEF0B1AF5026700E0D3FA /* Services */,
 				5DACEF251AF5026700E0D3FA /* ServicesTests */,
 				5DACEF0A1AF5026700E0D3FA /* Products */,
+				5DACEF381AF5089800E0D3FA /* FBSDKCoreKit.framework */,
+				5DACEF391AF5089800E0D3FA /* FBSDKLoginKit.framework */,
+				5DACEF3A1AF5089800E0D3FA /* FBSDKShareKit.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -347,6 +359,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Services/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -357,6 +373,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Services/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
