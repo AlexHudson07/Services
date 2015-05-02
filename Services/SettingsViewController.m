@@ -10,6 +10,7 @@
 #import "Parse/Parse.h"
 
 @interface SettingsViewController ()
+
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *cityTextField;
 @property (strong, nonatomic) IBOutlet UITextField *phoneTextField;

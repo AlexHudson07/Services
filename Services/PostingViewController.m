@@ -28,8 +28,6 @@
 
     self.navigationItem.title = @"Post";
 
-  //  self.pickerData = @[ @"Electricians", @"Plumber"];
-
     [PFCloud callFunctionInBackground:@"categories"
                        withParameters:@{}
                                 block:^(NSDictionary *result, NSError *error) {
@@ -55,15 +53,20 @@
 //resigns the keyboard when the user presses the return key
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
 
+    [self.descriptionTextView resignFirstResponder];
+
     return YES;
 }
 - (IBAction)onPostButtonPressed:(id)sender {
 
-    NSString * string;
+    NSString *string;
+    NSString *message;
     if (self.iAmProviding) {
         string = @"Provide";
+        message = @"The service you provide is posted";
     } else {
         string = @"Want";
+        message = @"The service you need is posted";
     }
     PFObject *want = [PFObject objectWithClassName:string];
     want[@"category"] = @"Repairs/Electrician";
@@ -77,12 +80,22 @@
     [want saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
 
-             NSLog(@"test");
 
+            UIAlertController * ac =   [UIAlertController
+                                       alertControllerWithTitle:message
+                                       message:nil
+                                       preferredStyle:UIAlertControllerStyleAlert];
 
-            
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                       handler:^(UIAlertAction * ation) {
+
+                                                           [self performSegueWithIdentifier:@"unwindFromPostIdentifier" sender:self];
+                                                       }];
+            [ac addAction:ok];
+
+            [self presentViewController:ac animated:YES completion:nil];
         } else {
-            // There was a problem, check error.description
+
         }
     }];
 }

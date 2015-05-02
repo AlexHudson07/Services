@@ -77,7 +77,6 @@
                                 </state>
                                 <connections>
                                     <action selector="onPostButtonPressed:" destination="YUj-9f-7HJ" eventType="touchUpInside" id="hRI-Yg-gq7"/>
-                                    <segue destination="nlM-lz-bOO" kind="unwind" unwindAction="unwindFromPost:" id="STQ-K6-yYK"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GPv-Wd-eIW">
@@ -104,6 +103,7 @@
                         <outlet property="categoryPicker" destination="bxy-Fu-iWk" id="ze3-e4-XGL"/>
                         <outlet property="descriptionTextView" destination="8JF-3X-peF" id="oqO-Ca-SW9"/>
                         <outlet property="wantingOrProvidingSegmentedControl" destination="GPv-Wd-eIW" id="Kcr-gF-7kL"/>
+                        <segue destination="nlM-lz-bOO" kind="unwind" identifier="unwindFromPostIdentifier" unwindAction="unwindFromPost:" id="mDf-sw-ZUC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IaB-kx-eqH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -187,18 +187,33 @@
                                     <action selector="onAddButtonPressed:" destination="C6G-xJ-wAP" eventType="touchUpInside" id="NlK-fk-5Gg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rdw-nh-4pX">
+                                <rect key="frame" x="16" y="55" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="Jo5-tY-FL9"/>
+                                    <constraint firstAttribute="height" constant="30" id="wyh-C0-Lcj"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSettingsButtonPressed:" destination="C6G-xJ-wAP" eventType="touchUpInside" id="bvf-ww-w6r"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.61960784310000006" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="3LA-K6-Q9Y" firstAttribute="top" secondItem="IA2-ey-yck" secondAttribute="topMargin" constant="82" id="5T6-WT-PfL"/>
                             <constraint firstItem="pgQ-p0-N4y" firstAttribute="top" secondItem="3LA-K6-Q9Y" secondAttribute="bottom" id="8PQ-NE-ga7"/>
                             <constraint firstItem="3LA-K6-Q9Y" firstAttribute="leading" secondItem="IA2-ey-yck" secondAttribute="leadingMargin" constant="-16" id="9nA-lc-m9D"/>
+                            <constraint firstItem="Rdw-nh-4pX" firstAttribute="leading" secondItem="IA2-ey-yck" secondAttribute="leadingMargin" id="Jic-aZ-lPN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="awU-0V-qu4" secondAttribute="trailing" constant="52" id="OZI-QW-Rsw"/>
                             <constraint firstItem="pgQ-p0-N4y" firstAttribute="top" secondItem="3LA-K6-Q9Y" secondAttribute="bottom" id="QeY-Iz-7Xv"/>
                             <constraint firstItem="3LA-K6-Q9Y" firstAttribute="top" secondItem="IA2-ey-yck" secondAttribute="topMargin" constant="82" id="Qex-gc-si6"/>
                             <constraint firstItem="k9q-fw-4jd" firstAttribute="top" secondItem="IA2-ey-yck" secondAttribute="topMargin" constant="52" id="Ucg-c0-blh"/>
                             <constraint firstAttribute="centerX" secondItem="k9q-fw-4jd" secondAttribute="centerX" id="YyK-8k-WUU"/>
                             <constraint firstItem="awU-0V-qu4" firstAttribute="top" secondItem="IA2-ey-yck" secondAttribute="topMargin" constant="55" id="d9a-PN-ZEg"/>
+                            <constraint firstItem="Rdw-nh-4pX" firstAttribute="top" secondItem="IA2-ey-yck" secondAttribute="topMargin" constant="55" id="dqg-Sc-QKE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3LA-K6-Q9Y" secondAttribute="trailing" constant="-16" id="dz5-nb-6R2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3LA-K6-Q9Y" secondAttribute="trailing" constant="-16" id="h7Z-Uj-4dT"/>
                             <constraint firstItem="awU-0V-qu4" firstAttribute="top" secondItem="SXb-Bg-U96" secondAttribute="bottom" id="lOB-Xf-ars"/>

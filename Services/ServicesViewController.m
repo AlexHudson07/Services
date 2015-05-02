@@ -28,17 +28,6 @@
     self.servicesArray = [NSArray new];
     self.wantsArray = [NSArray new];
 
-   // self.navigationItem.title = @"Services";
-
-    UIImage *sprocket= [UIImage imageNamed:@"sprocket"];
-    UIButton *face1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    face1.bounds = CGRectMake( 10, 0, sprocket.size.width, sprocket.size.height );
-    [face1 addTarget:self action:@selector(goToSettings) forControlEvents:UIControlEventTouchUpInside];
-    [face1 setImage:sprocket forState:UIControlStateNormal];
-    UIBarButtonItem *backButton1 = [[UIBarButtonItem alloc] initWithCustomView:face1];
-    self.navigationItem.rightBarButtonItem = backButton1;
-
-
     [PFCloud callFunctionInBackground:@"wants"
                        withParameters:@{}
                                 block:^(NSArray *result, NSError *error) {
@@ -54,11 +43,11 @@
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = YES;
 }
-
--(void)goToSettings{
-    NSLog(@"Going to settings");
+- (IBAction)onSettingsButtonPressed:(id)sender {
     [self performSegueWithIdentifier:@"settingsSegue" sender:self];
+
 }
+
 - (IBAction)onAddButtonPressed:(id)sender {
 
     [self performSegueWithIdentifier:@"servicesToAddSegue" sender:self];
