@@ -61,9 +61,24 @@
 
                                             self.matchesArray = result;
 
-                                            if (result) {
+                                            if (result.count > 0) {
                                                 NSDictionary *dictionary = [result objectAtIndex:0];
                                                 NSLog(@"dictionary: %@", dictionary );
+                                            } else {
+
+                                                UIAlertController * ac =   [UIAlertController
+                                                                            alertControllerWithTitle:@"You currently dont have any matches for this service"
+                                                                            message:nil
+                                                                            preferredStyle:UIAlertControllerStyleAlert];
+
+                                                UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                                           handler:^(UIAlertAction * ation) {
+
+                                                                                               [self performSegueWithIdentifier:@"unwindFromDetailIdentifier" sender:self];
+                                                                                           }];
+                                                [ac addAction:ok];
+                                                
+                                                [self presentViewController:ac animated:YES completion:nil];
                                             }
 
                                             [self.detailTableView reloadData];
@@ -80,9 +95,23 @@
 
                                         self.matchesArray = result;
 
-                                        if (result) {
+                                        if (result.count > 0) {
                                             NSDictionary *dictionary = [result objectAtIndex:0];
                                             NSLog(@"dictionary: %@", dictionary );
+                                        }else {
+                                            UIAlertController * ac =   [UIAlertController
+                                                                        alertControllerWithTitle:@"You currently dont have any matches for this service"
+                                                                        message:nil
+                                                                        preferredStyle:UIAlertControllerStyleAlert];
+
+                                            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                                       handler:^(UIAlertAction * ation) {
+
+                                                                                           [self performSegueWithIdentifier:@"unwindFromDetailIdentifier" sender:self];
+                                                                                       }];
+                                            [ac addAction:ok];
+
+                                            [self presentViewController:ac animated:YES completion:nil];
                                         }
 
                                         [self.detailTableView reloadData];

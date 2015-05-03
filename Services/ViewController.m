@@ -61,6 +61,8 @@
 
             user[@"phoneNumber"] = self.numberTextField.text;
 
+            user[@"city"] = @"miami";
+
             [user saveEventually];
 
             [self performSegueWithIdentifier:@"servicesSegue" sender:self];
@@ -75,6 +77,7 @@
 //            [self performSegueWithIdentifier:@"servicesSegue" sender:self];
 //        }
 //    }];
+
 }
 
 -(IBAction)unwindFromSettings:(UIStoryboardSegue *) segue{}

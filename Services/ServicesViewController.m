@@ -163,4 +163,6 @@
 
 -(IBAction)unwindFromPost:(UIStoryboardSegue *) segue{}
 
+-(IBAction)unwindFromDetail:(UIStoryboardSegue *) segue{}
+
 @end

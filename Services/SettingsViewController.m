@@ -49,6 +49,24 @@
     [self.view addGestureRecognizer:tap];
 
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:25.f/255 green:116.f/255 blue:119.f/255 alpha:1];
+
+
+    PFQuery *query = [PFUser query];
+
+    [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
+
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+
+        NSDictionary *dictionary = objects[0];
+
+        NSLog(@"%@", dictionary);
+
+        self.nameTextField.text = [dictionary objectForKey:@"screenName"];
+        self.cityTextField.text = [dictionary objectForKey:@"city"];
+        self.emailTextField.text = [dictionary objectForKey:@"email"];
+        self.phoneTextField.text = [dictionary objectForKey:@"phoneNumber"];
+    }];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -65,6 +83,30 @@
     [self.emailTextField resignFirstResponder];
 
     return YES;
+}
+
+- (IBAction)onSaveButtonPressed:(id)sender {
+
+    PFUser *user = [PFUser currentUser];
+
+    if (self.nameTextField.text) {
+        user[@"screenName"] = self.nameTextField.text;
+    }
+
+    if (self.phoneTextField.text) {
+        user[@"phoneNumber"] = self.phoneTextField.text;
+    }
+
+    if (self.emailTextField.text) {
+        user[@"email"] = self.emailTextField.text;
+    }
+
+    if (self.cityTextField.text) {
+        user[@"city"] = self.cityTextField.text;
+    }
+
+    [user saveEventually];
+
 }
 
 - (IBAction)onLogOutButtonPressed:(id)sender {
