@@ -106,10 +106,6 @@
                     <view key="view" contentMode="scaleToFill" id="9jO-2P-huv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <userGuides>
-                            <userLayoutGuide location="300" affinity="minY"/>
-                            <userLayoutGuide location="211" affinity="minY"/>
-                        </userGuides>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description" translatesAutoresizingMaskIntoConstraints="NO" id="8JF-3X-peF">
                                 <rect key="frame" x="181" y="305" width="240" height="128"/>
