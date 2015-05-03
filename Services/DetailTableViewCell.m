@@ -13,6 +13,13 @@
 - (void)awakeFromNib {
     // Initialization code
 }
+- (IBAction)onPhoneButtonPressed:(id)sender {
+
+    UIApplication *myApp = [UIApplication sharedApplication];
+    NSString *theCall = [NSString stringWithFormat:@"tel://%@",self.numberButton.titleLabel.text];
+    NSLog(@"making call with %@",theCall);
+    [myApp openURL:[NSURL URLWithString:theCall]];
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

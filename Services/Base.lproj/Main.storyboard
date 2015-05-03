@@ -269,12 +269,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rdw-nh-4pX">
-                                <rect key="frame" x="16" y="37" width="68" height="30"/>
+                                <rect key="frame" x="16" y="37" width="79" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="68" id="Jo5-tY-FL9"/>
+                                    <constraint firstAttribute="width" constant="79" id="Jo5-tY-FL9"/>
                                     <constraint firstAttribute="height" constant="30" id="wyh-C0-Lcj"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                 <state key="normal" title="Settings">
                                     <color key="titleColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -351,7 +351,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Phone: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkR-go-aMG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkR-go-aMG">
                                 <rect key="frame" x="151" y="308" width="59" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="59" id="8HT-yA-UUH"/>
@@ -389,6 +389,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4sh-eZ-rYt">
+                                <rect key="frame" x="280" y="305" width="170" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="2dQ-vb-pqd"/>
+                                    <constraint firstAttribute="height" constant="30" id="DOs-HK-kK0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uLb-ET-5hb">
                                 <rect key="frame" x="280" y="346" width="170" height="30"/>
                                 <constraints>
@@ -399,12 +408,12 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqb-Dd-sr8">
-                                <rect key="frame" x="272" y="427" width="56" height="30"/>
+                                <rect key="frame" x="237" y="418" width="126" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="56" id="3Vt-Su-Efp"/>
-                                    <constraint firstAttribute="height" constant="30" id="hgP-od-AOC"/>
+                                    <constraint firstAttribute="width" constant="126" id="3Vt-Su-Efp"/>
+                                    <constraint firstAttribute="height" constant="60" id="hgP-od-AOC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
                                 <state key="normal" title="Log Out">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -414,15 +423,6 @@
                                     <segue destination="2bn-f1-70J" kind="unwind" unwindAction="unwindFromSettings:" id="Gw8-dE-kNb"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4sh-eZ-rYt">
-                                <rect key="frame" x="280" y="305" width="170" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="170" id="2dQ-vb-pqd"/>
-                                    <constraint firstAttribute="height" constant="30" id="DOs-HK-kK0"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.098039215690000001" green="0.4549019608" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -440,9 +440,9 @@
                             <constraint firstAttribute="centerX" secondItem="ndq-ZD-Gat" secondAttribute="centerX" constant="99.5" id="kUP-JC-hxm"/>
                             <constraint firstAttribute="centerY" secondItem="pAh-7C-vYb" secondAttribute="centerY" constant="20" id="lIX-bI-vAm"/>
                             <constraint firstAttribute="centerY" secondItem="QMK-mf-LJt" secondAttribute="centerY" constant="61" id="n6p-mc-7I7"/>
-                            <constraint firstItem="2Pm-MK-nmW" firstAttribute="top" secondItem="Fqb-Dd-sr8" secondAttribute="bottom" constant="143" id="nh6-jO-xFV"/>
+                            <constraint firstItem="2Pm-MK-nmW" firstAttribute="top" secondItem="Fqb-Dd-sr8" secondAttribute="bottom" constant="122" id="nh6-jO-xFV"/>
                             <constraint firstAttribute="centerX" secondItem="Fqb-Dd-sr8" secondAttribute="centerX" id="qx2-Tm-OA1"/>
-                            <constraint firstAttribute="centerY" secondItem="rkR-go-aMG" secondAttribute="centerY" constant="-19.5" id="rKh-lD-Fgu"/>
+                            <constraint firstAttribute="centerY" secondItem="rkR-go-aMG" secondAttribute="centerY" constant="-18.5" id="rKh-lD-Fgu"/>
                             <constraint firstAttribute="centerX" secondItem="pAh-7C-vYb" secondAttribute="centerX" constant="-65" id="uYf-Zd-UVP"/>
                         </constraints>
                     </view>
@@ -486,18 +486,23 @@
                                                     <color key="textColor" red="0.35686274509999999" green="0.36078431370000003" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1g-yt-EHj">
-                                                    <rect key="frame" x="185" y="29" width="100" height="21"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1a-je-2Rn">
+                                                    <rect key="frame" x="209" y="20" width="120" height="40"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                                    <color key="textColor" red="0.35686274509999999" green="0.36078431370000003" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleColor" red="0.35686274509999999" green="0.36078431370000003" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="onPhoneButtonPressed:" destination="1yV-dc-nLh" eventType="touchUpInside" id="bTE-2L-mF6"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.98431372549999996" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="nameLabel" destination="b7O-57-hkA" id="cEq-fE-KWF"/>
-                                            <outlet property="numberLabel" destination="y1g-yt-EHj" id="XDo-Ef-NSO"/>
+                                            <outlet property="numberButton" destination="X1a-je-2Rn" id="gVZ-cO-VQU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

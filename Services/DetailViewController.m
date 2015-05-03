@@ -108,7 +108,8 @@
     NSDictionary *dictionary = [self.matchesArray objectAtIndex:indexPath.row];
 
     cell.nameLabel.text = [dictionary objectForKey:@"screenName"];
-    cell.numberLabel.text = [dictionary objectForKey:@"phoneNumber"];
+
+    [cell.numberButton setTitle:[dictionary objectForKey:@"phoneNumber"] forState:UIControlStateNormal];
 
     return cell;
 }
