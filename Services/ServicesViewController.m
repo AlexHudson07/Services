@@ -45,6 +45,11 @@
                                     if (!error) {
                                         // result is @"Hello world!"
                                         self.servicesArray = result;
+
+                                        NSDictionary *dictionary = result[0];
+
+                                        NSString *s = [dictionary objectForKey:@"matches"];
+
                                         [self.servicesTableView reloadData];
                                     }
                                 }];
@@ -52,6 +57,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = YES;
+
+    [self.servicesTableView reloadData];
 }
 - (IBAction)onSettingsButtonPressed:(id)sender {
     [self performSegueWithIdentifier:@"settingsSegue" sender:self];
@@ -76,7 +83,9 @@
 
     cell.categoryLabel.text = [dictionary objectForKey:@"category"];
     cell.cityLabel.text = [dictionary objectForKey:@"city"];
-    cell.matchesLabel.text = @"38";
+
+    NSNumber *number = [dictionary objectForKey:@"matches"];
+    cell.matchesLabel.text = [number stringValue];
 
     return cell;
 }

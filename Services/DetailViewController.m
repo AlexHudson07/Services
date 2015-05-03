@@ -8,7 +8,7 @@
 
 #import "DetailViewController.h"
 #import <Parse/Parse.h>
-#import "ServiceCell.h"
+#import "DetailTableViewCell.h"
 
 @interface DetailViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -40,9 +40,10 @@
 
                                         self.matchesArray = result;
 
-                                        NSDictionary *dictionary = [result objectAtIndex:0];
-
-                                        NSLog(@"dictionary: %@", dictionary );
+                                        if (result) {
+                                            NSDictionary *dictionary = [result objectAtIndex:0];
+                                            NSLog(@"dictionary: %@", dictionary );
+                                        }
 
                                         [self.detailTableView reloadData];
                                     }
@@ -61,13 +62,12 @@
 //fills the cells to with the info and images from the parse
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    ServiceCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+   DetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
 
     NSDictionary *dictionary = [self.matchesArray objectAtIndex:indexPath.row];
 
-//    cell.categoryLabel.text = [dictionary objectForKey:@"category"];
-//    cell.cityLabel.text = [dictionary objectForKey:@"city"];
-//    cell.matchesLabel.text = @"38";
+    cell.nameLabel.text = [dictionary objectForKey:@"screenName"];
+    cell.numberLabel.text = [dictionary objectForKey:@"phoneNumber"];
 
     return cell;
 }
@@ -76,6 +76,5 @@
 
     //  [self performSegueWithIdentifier:@"detailSegue" sender:self];
 }
-
 
 @end

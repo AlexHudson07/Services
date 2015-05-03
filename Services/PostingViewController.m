@@ -18,6 +18,8 @@
 @property (strong, nonatomic) NSString *category;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *wantingOrProvidingSegmentedControl;
 @property BOOL iAmProviding;
+@property NSString *screenName;
+@property NSString *phoneNumber;
 
 @end
 
@@ -28,12 +30,24 @@
 
     self.navigationItem.title = @"Post";
 
+    PFQuery *query = [PFUser query];
 
+    [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
 
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
 
+        NSDictionary *dictionary = objects[0];
 
-    
+        NSLog(@"%@", dictionary);
 
+        self.screenName = [dictionary objectForKey:@"screenName"];
+
+        self.phoneNumber = [dictionary objectForKey:@"phoneNumber"];
+
+        NSLog(@"");
+
+    }];
+        
     [PFCloud callFunctionInBackground:@"categories"
                        withParameters:@{}
                                 block:^(NSDictionary *result, NSError *error) {
@@ -67,21 +81,25 @@
 
     NSString *string;
     NSString *message;
+
     if (self.iAmProviding) {
         string = @"Provide";
         message = @"The service you provide is posted";
+
     } else {
         string = @"Want";
         message = @"The service you need is posted";
     }
 
     PFObject *want = [PFObject objectWithClassName:string];
+
+    want[@"screenName"] = self.screenName;
+    want[@"phoneNumber"] = self.phoneNumber;
     want[@"category"] = self.category;
     want[@"description"] = self.descriptionTextView.text;
     want[@"city"] = @"Miami";
     want[@"state"] = @"Florida";
     want[@"country"] = @"USA";
-    want[@"screenName"] = [PFUser currentUser].username;
     want[@"myuser"] = [PFUser currentUser];
 
     [want saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

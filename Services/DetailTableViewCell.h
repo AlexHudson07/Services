@@ -11,5 +11,6 @@
 @interface DetailTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *numberLabel;
 
 @end

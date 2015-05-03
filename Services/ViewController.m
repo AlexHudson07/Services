@@ -34,11 +34,14 @@
 
     [self.userNameTextField resignFirstResponder];
 
+    [self.numberTextField resignFirstResponder];
+
     return YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
 
+    self.navigationController.navigationBarHidden = YES;
 
     if ([PFUser currentUser] || [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
 
@@ -63,8 +66,6 @@
             [self performSegueWithIdentifier:@"servicesSegue" sender:self];
         }
     }];
-
-
 
 //    [PFFacebookUtils logInInBackgroundWithPublishPermissions:@[ @"publish_actions" ] block:^(PFUser *user, NSError *error) {
 //        if (!user) {

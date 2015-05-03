@@ -31,7 +31,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = NO;
-
 }
 
 #pragma mark - UI Methods
