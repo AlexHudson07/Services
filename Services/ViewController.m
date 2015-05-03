@@ -33,18 +33,7 @@
 
 - (IBAction)onButtonPressed:(id)sender {
 
-//    [PFFacebookUtils logInInBackgroundWithReadPermissions:@[@"read_actions"] block: ^(PFUser *user, NSError *error) {
-//        if (!user) {
-//            NSLog(@"Uh oh. The user cancelled the Facebook login.");
-//        } else {
-//            NSLog(@"User now has publish permissions!");
-//            [self performSegueWithIdentifier:@"servicesSegue" sender:self];
-//        }
-//    }];
-
-
-
-    [PFFacebookUtils logInInBackgroundWithPublishPermissions:@[ @"publish_actions" ] block:^(PFUser *user, NSError *error) {
+    [PFFacebookUtils logInInBackgroundWithReadPermissions:@[@"public_profile"] block: ^(PFUser *user, NSError *error) {
         if (!user) {
             NSLog(@"Uh oh. The user cancelled the Facebook login.");
         } else {
@@ -52,6 +41,17 @@
             [self performSegueWithIdentifier:@"servicesSegue" sender:self];
         }
     }];
+
+
+
+//    [PFFacebookUtils logInInBackgroundWithPublishPermissions:@[ @"publish_actions" ] block:^(PFUser *user, NSError *error) {
+//        if (!user) {
+//            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+//        } else {
+//            NSLog(@"User now has publish permissions!");
+//            [self performSegueWithIdentifier:@"servicesSegue" sender:self];
+//        }
+//    }];
 }
 
 -(IBAction)unwindFromSettings:(UIStoryboardSegue *) segue{}

@@ -68,14 +68,15 @@
         string = @"Want";
         message = @"The service you need is posted";
     }
+
     PFObject *want = [PFObject objectWithClassName:string];
-    want[@"category"] = @"Repairs/Electrician";
+    want[@"category"] = self.category;
     want[@"description"] = self.descriptionTextView.text;
     want[@"city"] = @"Miami";
     want[@"state"] = @"Florida";
     want[@"country"] = @"USA";
     want[@"screenName"] = [PFUser currentUser].username;
-    want[@"user"] = [PFUser currentUser].objectId;
+    want[@"myuser"] = [PFUser currentUser];
 
     [want saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
@@ -125,7 +126,7 @@
 {
     self.category = self.pickerData[row];
 
-    NSLog(@"Categary to be posted: %@", self.category);
+    NSLog(@"Category to be posted: %@", self.category);
 }
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view

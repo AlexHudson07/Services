@@ -9,6 +9,8 @@
 #import "ServicesViewController.h"
 #import "ServiceCell.h"
 #import <Parse/Parse.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "DetailViewController.h"
 
 @interface ServicesViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -28,6 +30,15 @@
     self.servicesArray = [NSArray new];
     self.wantsArray = [NSArray new];
 
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+             if (!error) {
+                 NSLog(@"fetched user:%@", result);
+             }
+         }];
+    }
+
     [PFCloud callFunctionInBackground:@"wants"
                        withParameters:@{}
                                 block:^(NSArray *result, NSError *error) {
@@ -37,7 +48,6 @@
                                         [self.servicesTableView reloadData];
                                     }
                                 }];
-
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -45,7 +55,6 @@
 }
 - (IBAction)onSettingsButtonPressed:(id)sender {
     [self performSegueWithIdentifier:@"settingsSegue" sender:self];
-
 }
 
 - (IBAction)onAddButtonPressed:(id)sender {
@@ -87,8 +96,9 @@
                                         if (!error) {
                                             // result is @"Hello world!"
                                             self.servicesArray = result;
-                                            [self.servicesTableView reloadData];
                                         }
+                                        [self.servicesTableView reloadData];
+
                                     }];
     }else{
         NSLog(@"The second one");
@@ -99,9 +109,18 @@
                                         if (!error) {
                                             // result is @"Hello world!"
                                             self.servicesArray = result;
-                                            [self.servicesTableView reloadData];
                                         }
+                                        [self.servicesTableView reloadData];
+
                                     }];
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"detailSegue"]) {
+
+
+
     }
 }
 

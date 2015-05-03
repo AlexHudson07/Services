@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import <Parse/Parse.h>
 
 @interface DetailViewController ()
 
@@ -18,7 +19,16 @@
     [super viewDidLoad];
 
     self.navigationItem.title = @"Details";
-    // Do any additional setup after loading the view.
+
+    [PFCloud callFunctionInBackground:@"wantsMatch"
+                       withParameters:@{@"category" : @"Repairs", @"city": @"miami"}
+                                block:^(NSArray *result, NSError *error) {
+                                    if (!error) {
+                                        // result is @"Hello world!"
+
+                                        NSLog(@"results: %@", result );
+                                    }
+                                }];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
