@@ -107,17 +107,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description" translatesAutoresizingMaskIntoConstraints="NO" id="8JF-3X-peF">
-                                <rect key="frame" x="181" y="305" width="240" height="128"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.98431372549999996" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LYW-bI-EhR">
+                                <rect key="frame" x="250" y="507" width="101" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="8Td-kR-X1I"/>
-                                    <constraint firstAttribute="width" constant="240" id="fxm-Ou-Iha"/>
+                                    <constraint firstAttribute="height" constant="30" id="OQ0-AH-S8k"/>
+                                    <constraint firstAttribute="width" constant="101" id="bE9-Nq-0rQ"/>
                                 </constraints>
-                                <color key="textColor" red="0.35686274509999999" green="0.36078431370000003" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onPostButtonPressed:" destination="YUj-9f-7HJ" eventType="touchUpInside" id="hRI-Yg-gq7"/>
+                                </connections>
+                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GPv-Wd-eIW">
                                 <rect key="frame" x="224" y="85" width="153" height="29"/>
                                 <constraints>
@@ -146,37 +150,32 @@
                                     <outlet property="delegate" destination="YUj-9f-7HJ" id="7By-o4-F0o"/>
                                 </connections>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LYW-bI-EhR">
-                                <rect key="frame" x="250" y="507" width="101" height="30"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description:" translatesAutoresizingMaskIntoConstraints="NO" id="TaR-n6-65u">
+                                <rect key="frame" x="180" y="305" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="OQ0-AH-S8k"/>
-                                    <constraint firstAttribute="width" constant="101" id="bE9-Nq-0rQ"/>
+                                    <constraint firstAttribute="height" constant="128" id="8RO-q5-JUt"/>
+                                    <constraint firstAttribute="width" constant="240" id="Gxi-2G-FZ6"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
-                                <state key="normal" title="Submit">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onPostButtonPressed:" destination="YUj-9f-7HJ" eventType="touchUpInside" id="hRI-Yg-gq7"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.098039215690000001" green="0.4549019608" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="LYW-bI-EhR" secondAttribute="centerX" id="CWf-sY-DeF"/>
                             <constraint firstAttribute="centerY" secondItem="bxy-Fu-iWk" secondAttribute="centerY" constant="89" id="Df2-3a-nn3"/>
                             <constraint firstItem="g3k-Mc-t1J" firstAttribute="top" secondItem="LYW-bI-EhR" secondAttribute="bottom" constant="63" id="NFi-PQ-sdI"/>
-                            <constraint firstAttribute="centerX" secondItem="8JF-3X-peF" secondAttribute="centerX" constant="-1" id="UU2-HA-nSf"/>
                             <constraint firstAttribute="centerX" secondItem="GPv-Wd-eIW" secondAttribute="centerX" constant="-0.5" id="bSP-xp-00e"/>
                             <constraint firstAttribute="centerY" secondItem="GPv-Wd-eIW" secondAttribute="centerY" constant="201" id="gSC-S9-8tC"/>
+                            <constraint firstItem="TaR-n6-65u" firstAttribute="top" secondItem="bxy-Fu-iWk" secondAttribute="bottom" constant="13" id="hhZ-mY-8J1"/>
                             <constraint firstAttribute="centerX" secondItem="bxy-Fu-iWk" secondAttribute="centerX" id="llO-az-muk"/>
-                            <constraint firstAttribute="centerY" secondItem="8JF-3X-peF" secondAttribute="centerY" constant="-69" id="xfA-li-3hD"/>
+                            <constraint firstAttribute="centerX" secondItem="TaR-n6-65u" secondAttribute="centerX" id="pPI-P1-sON"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="categoryPicker" destination="bxy-Fu-iWk" id="ze3-e4-XGL"/>
-                        <outlet property="descriptionTextView" destination="8JF-3X-peF" id="oqO-Ca-SW9"/>
+                        <outlet property="descriptionTextView" destination="TaR-n6-65u" id="dnk-Mh-u98"/>
                         <outlet property="wantingOrProvidingSegmentedControl" destination="GPv-Wd-eIW" id="Kcr-gF-7kL"/>
                         <segue destination="nlM-lz-bOO" kind="unwind" identifier="unwindFromPostIdentifier" unwindAction="unwindFromPost:" id="mDf-sw-ZUC"/>
                     </connections>

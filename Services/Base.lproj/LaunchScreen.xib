@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -9,10 +10,34 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="zO8-CA-Sac">
+                    <rect key="frame" x="0.0" y="127" width="480" height="190"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="480" id="ZKK-c9-tcP"/>
+                        <constraint firstAttribute="height" constant="190" id="az5-GR-av1"/>
+                        <constraint firstAttribute="width" secondItem="zO8-CA-Sac" secondAttribute="height" multiplier="48:19" id="g2X-R2-N78"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="az5-GR-av1"/>
+                        </mask>
+                    </variation>
+                </imageView>
+            </subviews>
             <color key="backgroundColor" red="0.098039215690000001" green="0.4549019608" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="zO8-CA-Sac" secondAttribute="trailing" id="Cyx-8j-AIa"/>
+                <constraint firstItem="zO8-CA-Sac" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ELB-qk-9yR"/>
+                <constraint firstAttribute="centerX" secondItem="zO8-CA-Sac" secondAttribute="centerX" id="K5V-EG-jUL"/>
+                <constraint firstAttribute="centerY" secondItem="zO8-CA-Sac" secondAttribute="centerY" constant="18" id="p6u-Ro-Fe0"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
+    <resources>
+        <image name="logo" width="1536" height="512"/>
+    </resources>
 </document>
