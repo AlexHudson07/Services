@@ -19,6 +19,7 @@
 @property (strong, nonatomic) NSArray *servicesArray;
 @property (strong, nonatomic) NSArray *wantsArray;
 @property (strong, nonatomic) NSArray *providesArray;
+@property BOOL needs;
 
 @end
 
@@ -39,26 +40,48 @@
 //         }];
 //    }
 
-    [PFCloud callFunctionInBackground:@"wants"
-                       withParameters:@{}
-                                block:^(NSArray *result, NSError *error) {
-                                    if (!error) {
-                                        // result is @"Hello world!"
-                                        self.servicesArray = result;
-
-                                        NSDictionary *dictionary = result[0];
-
-                                        NSString *s = [dictionary objectForKey:@"matches"];
-
-                                        [self.servicesTableView reloadData];
-                                    }
-                                }];
+    self.needs = YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = YES;
 
     [self.servicesTableView reloadData];
+
+    if (self.needs) {
+
+        [PFCloud callFunctionInBackground:@"wants"
+                           withParameters:@{}
+                                    block:^(NSArray *result, NSError *error) {
+                                        if (!error) {
+                                            // result is @"Hello world!"
+                                            self.servicesArray = result;
+
+//                                            NSDictionary *dictionary = result[0];
+//
+//                                            NSString *s = [dictionary objectForKey:@"matches"];
+
+                                            [self.servicesTableView reloadData];
+                                        }
+                                    }];
+    } else {
+        [PFCloud callFunctionInBackground:@"provides"
+                           withParameters:@{}
+                                    block:^(NSArray *result, NSError *error) {
+                                        if (!error) {
+                                            // result is @"Hello world!"
+                                            self.servicesArray = result;
+
+                                            //                                            NSDictionary *dictionary = result[0];
+                                            //
+                                            //                                            NSString *s = [dictionary objectForKey:@"matches"];
+                                            
+                                            [self.servicesTableView reloadData];
+                                        }
+                                    }];
+    }
+
+
 }
 - (IBAction)onSettingsButtonPressed:(id)sender {
     [self performSegueWithIdentifier:@"settingsSegue" sender:self];
@@ -99,6 +122,7 @@
     if (control.selectedSegmentIndex == 0) {
         NSLog(@"The first one");
 
+        self.needs = YES;
         [PFCloud callFunctionInBackground:@"wants"
                            withParameters:@{}
                                     block:^(NSArray *result, NSError *error) {
@@ -112,6 +136,7 @@
     }else{
         NSLog(@"The second one");
 
+        self.needs = NO;
         [PFCloud callFunctionInBackground:@"provides"
                            withParameters:@{}
                                     block:^(NSArray *result, NSError *error) {
@@ -132,7 +157,7 @@
         NSIndexPath *myIndexPath = [self.servicesTableView indexPathForSelectedRow];
         NSDictionary *dictionary = [self.servicesArray objectAtIndex: myIndexPath.row ];
         vc.infoDictionary = dictionary;
-
+        vc.amIProviding = !self.needs;
     }
 }
 

@@ -32,6 +32,28 @@
     NSLog(@"%@", category);
     NSLog(@"%@", city);
 
+
+    if (self.amIProviding) {
+
+        [PFCloud callFunctionInBackground:@"providesMatch"
+                           withParameters:@{@"category" : category, @"city" : city}
+                                    block:^(NSArray *result, NSError *error) {
+                                        if (!error) {
+                                            // result is @"Hello world!"
+
+                                            self.matchesArray = result;
+
+                                            if (result) {
+                                                NSDictionary *dictionary = [result objectAtIndex:0];
+                                                NSLog(@"dictionary: %@", dictionary );
+                                            }
+
+                                            [self.detailTableView reloadData];
+                                        }
+                                    }];
+
+
+    } else {
     [PFCloud callFunctionInBackground:@"wantsMatch"
                        withParameters:@{@"category" : category, @"city" : city}
                                 block:^(NSArray *result, NSError *error) {
@@ -48,6 +70,7 @@
                                         [self.detailTableView reloadData];
                                     }
                                 }];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated{
