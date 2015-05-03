@@ -28,6 +28,12 @@
 
     self.navigationItem.title = @"Post";
 
+
+
+
+
+    
+
     [PFCloud callFunctionInBackground:@"categories"
                        withParameters:@{}
                                 block:^(NSDictionary *result, NSError *error) {

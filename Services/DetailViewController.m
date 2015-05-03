@@ -8,8 +8,12 @@
 
 #import "DetailViewController.h"
 #import <Parse/Parse.h>
+#import "ServiceCell.h"
 
-@interface DetailViewController ()
+@interface DetailViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) NSArray *matchesArray;
+@property (strong, nonatomic) IBOutlet UITableView *detailTableView;
 
 @end
 
@@ -20,13 +24,27 @@
 
     self.navigationItem.title = @"Details";
 
+   // NSLog(@"%@", self.infoDictionary);
+
+    NSString *category = [self.infoDictionary objectForKey:@"category"];
+    NSString *city = [self.infoDictionary objectForKey:@"city"];
+
+    NSLog(@"%@", category);
+    NSLog(@"%@", city);
+
     [PFCloud callFunctionInBackground:@"wantsMatch"
-                       withParameters:@{@"category" : @"Repairs", @"city": @"miami"}
+                       withParameters:@{@"category" : category, @"city" : city}
                                 block:^(NSArray *result, NSError *error) {
                                     if (!error) {
                                         // result is @"Hello world!"
 
-                                        NSLog(@"results: %@", result );
+                                        self.matchesArray = result;
+
+                                        NSDictionary *dictionary = [result objectAtIndex:0];
+
+                                        NSLog(@"dictionary: %@", dictionary );
+
+                                        [self.detailTableView reloadData];
                                     }
                                 }];
 }
@@ -35,19 +53,29 @@
     self.navigationController.navigationBarHidden = NO;
 
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+//tells the table view how many cells there will be
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.matchesArray.count;
 }
 
-/*
-#pragma mark - Navigation
+//fills the cells to with the info and images from the parse
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    ServiceCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+
+    NSDictionary *dictionary = [self.matchesArray objectAtIndex:indexPath.row];
+
+//    cell.categoryLabel.text = [dictionary objectForKey:@"category"];
+//    cell.cityLabel.text = [dictionary objectForKey:@"city"];
+//    cell.matchesLabel.text = @"38";
+
+    return cell;
 }
-*/
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    //  [self performSegueWithIdentifier:@"detailSegue" sender:self];
+}
+
 
 @end

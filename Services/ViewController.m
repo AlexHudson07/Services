@@ -13,6 +13,8 @@
 
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet UIButton *myButton;
+@property (strong, nonatomic) IBOutlet UITextField *userNameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *numberTextField;
 
 @end
 
@@ -20,6 +22,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(textFieldShouldReturn:)];
+
+    [self.view addGestureRecognizer:tap];
+}
+
+#pragma mark - UI Methods
+//resigns the keyboard when the user presses the return key
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+
+    [self.userNameTextField resignFirstResponder];
+
+    return YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -38,6 +53,13 @@
             NSLog(@"Uh oh. The user cancelled the Facebook login.");
         } else {
             NSLog(@"User now has publish permissions!");
+
+            user[@"screenName"] = self.userNameTextField.text;
+
+            user[@"phoneNumber"] = self.numberTextField.text;
+
+            [user saveEventually];
+
             [self performSegueWithIdentifier:@"servicesSegue" sender:self];
         }
     }];

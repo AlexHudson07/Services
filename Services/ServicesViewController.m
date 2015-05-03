@@ -30,14 +30,14 @@
     self.servicesArray = [NSArray new];
     self.wantsArray = [NSArray new];
 
-    if ([FBSDKAccessToken currentAccessToken]) {
-        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
-         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-             if (!error) {
-                 NSLog(@"fetched user:%@", result);
-             }
-         }];
-    }
+//    if ([FBSDKAccessToken currentAccessToken]) {
+//        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+//         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+//             if (!error) {
+//                 NSLog(@"fetched user:%@", result);
+//             }
+//         }];
+//    }
 
     [PFCloud callFunctionInBackground:@"wants"
                        withParameters:@{}
@@ -119,7 +119,10 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"detailSegue"]) {
 
-
+        DetailViewController *vc = segue.destinationViewController;
+        NSIndexPath *myIndexPath = [self.servicesTableView indexPathForSelectedRow];
+        NSDictionary *dictionary = [self.servicesArray objectAtIndex: myIndexPath.row ];
+        vc.infoDictionary = dictionary;
 
     }
 }
