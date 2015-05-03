@@ -25,6 +25,24 @@
     self.navigationItem.title = @"Details";
 
    // NSLog(@"%@", self.infoDictionary);
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:25.f/255 green:116.f/255 blue:119.f/255 alpha:1];
+
+    NSDictionary *dictionary =  @{NSForegroundColorAttributeName:[UIColor whiteColor],
+                                  NSFontAttributeName:[UIFont fontWithName:@"Futura" size:35]
+                                  };
+
+    [self.navigationController.navigationBar setTitleTextAttributes: dictionary];
+
+
+    //Back button
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
+     setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor],
+       NSFontAttributeName:[UIFont fontWithName:@"Futura" size:21]
+       }
+     forState:UIControlStateNormal];
 
     NSString *category = [self.infoDictionary objectForKey:@"category"];
     NSString *city = [self.infoDictionary objectForKey:@"city"];

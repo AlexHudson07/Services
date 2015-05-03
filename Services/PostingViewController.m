@@ -28,7 +28,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+
     self.navigationItem.title = @"Post";
+
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:25.f/255 green:116.f/255 blue:119.f/255 alpha:1];
+
+    NSDictionary *dictionary =  @{NSForegroundColorAttributeName:[UIColor whiteColor],
+                                  NSFontAttributeName:[UIFont fontWithName:@"Futura" size:35]
+                                  };
+
+    [self.navigationController.navigationBar setTitleTextAttributes: dictionary];
+
+
+    //Back button
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
+     setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor],
+       NSFontAttributeName:[UIFont fontWithName:@"Futura" size:21]
+       }
+     forState:UIControlStateNormal];
+
+    self.descriptionTextView.layer.cornerRadius = 3;
 
     PFQuery *query = [PFUser query];
 
@@ -159,8 +180,8 @@
     if (!tView)
     {
         tView = [[UILabel alloc] init];
-       // [tView setFont:[UIFont fontWithName:@"Quicksand-Regular" size:20]];
-        tView.textColor = [UIColor colorWithRed:25/255.0f green:174/255.0f blue:236/255.0f alpha:1.0];
+        [tView setFont:[UIFont fontWithName:@"Futura" size:20]];
+        tView.textColor = [UIColor whiteColor];
         tView.numberOfLines=3;
     }
     // Fill the label text here
