@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>553A855B-5567-4F3E-BC1A-FC7133BAC83E</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Services</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>83C62CFF82D7BB45937E1EB9E85BFA4CACA631DC</key>
 		<string>github.com:AlexHudson07/Services.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Services.xcodeproj/project.xcworkspace</string>
+	<string>Services.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>83C62CFF82D7BB45937E1EB9E85BFA4CACA631DC</key>

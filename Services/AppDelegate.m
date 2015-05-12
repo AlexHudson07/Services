@@ -19,18 +19,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-
-   // navigationController.NavigationBar.TintColor = UIColor.White;
 
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
     [Parse setApplicationId:@"4FAlwkw8tzcFyhWTLBflWWZzHHF2pk31XIzhTRVt"
                   clientKey:@"RKNCfBf5OjlMRbCjyon3rxn7tDdiq9wnvYm7EZyB"];
-
-
-    //my app key and secret
-   // [Parse setApplicationId:@"1Bj9wi7xoGiWWeHC854V2t5Hw1zOi4U0BOpWSJJG" clientKey:@"89HAMkvQyLKTHHcaCDLPYJvwiCAEpXnZqij9tzWb"];
 
     [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
 
@@ -70,7 +63,6 @@
                                                           openURL:url
                                                 sourceApplication:sourceApplication
                                                        annotation:annotation];
-
 }
 
 @end

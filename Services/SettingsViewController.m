@@ -69,13 +69,13 @@
 
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = NO;
 }
 
 #pragma mark - UI Methods
 //resigns the keyboard when the user presses the return key
--(BOOL)textFieldShouldReturn:(UITextField *)textField{
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
 
     [self.nameTextField resignFirstResponder];
     [self.cityTextField resignFirstResponder];

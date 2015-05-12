@@ -141,6 +141,14 @@
 		5D3AC9571AF52ECE00A5C486 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				5DACEF381AF5089800E0D3FA /* FBSDKCoreKit.framework */,
+				5DACEF391AF5089800E0D3FA /* FBSDKLoginKit.framework */,
+				5DACEF3A1AF5089800E0D3FA /* FBSDKShareKit.framework */,
+				5D3AC9331AF52B7200A5C486 /* Bolts.framework */,
+				5D3AC9341AF52B7200A5C486 /* Parse.framework */,
+				5D3AC9351AF52B7200A5C486 /* ParseCrashReporting.framework */,
+				5D3AC9371AF52B7200A5C486 /* ParseFacebookUtilsV4.framework */,
+				5D3AC9381AF52B7200A5C486 /* ParseUI.framework */,
 				5D3AC9551AF52E6600A5C486 /* libsqlite3.dylib */,
 				5D3AC9531AF52E5C00A5C486 /* libz.dylib */,
 				5D3AC9511AF52E4100A5C486 /* StoreKit.framework */,
@@ -160,18 +168,10 @@
 		5DACEF001AF5026700E0D3FA = {
 			isa = PBXGroup;
 			children = (
-				5D3AC9571AF52ECE00A5C486 /* Framework */,
 				5DACEF0B1AF5026700E0D3FA /* Services */,
 				5DACEF251AF5026700E0D3FA /* ServicesTests */,
 				5DACEF0A1AF5026700E0D3FA /* Products */,
-				5DACEF381AF5089800E0D3FA /* FBSDKCoreKit.framework */,
-				5DACEF391AF5089800E0D3FA /* FBSDKLoginKit.framework */,
-				5DACEF3A1AF5089800E0D3FA /* FBSDKShareKit.framework */,
-				5D3AC9331AF52B7200A5C486 /* Bolts.framework */,
-				5D3AC9341AF52B7200A5C486 /* Parse.framework */,
-				5D3AC9351AF52B7200A5C486 /* ParseCrashReporting.framework */,
-				5D3AC9371AF52B7200A5C486 /* ParseFacebookUtilsV4.framework */,
-				5D3AC9381AF52B7200A5C486 /* ParseUI.framework */,
+				5D3AC9571AF52ECE00A5C486 /* Framework */,
 			);
 			sourceTree = "<group>";
 		};

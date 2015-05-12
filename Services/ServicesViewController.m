@@ -30,20 +30,10 @@
 
     self.servicesArray = [NSArray new];
     self.wantsArray = [NSArray new];
-
-//    if ([FBSDKAccessToken currentAccessToken]) {
-//        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
-//         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-//             if (!error) {
-//                 NSLog(@"fetched user:%@", result);
-//             }
-//         }];
-//    }
-
     self.needs = YES;
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = YES;
 
     [self.servicesTableView reloadData];
@@ -54,12 +44,8 @@
                            withParameters:@{}
                                     block:^(NSArray *result, NSError *error) {
                                         if (!error) {
-                                            // result is @"Hello world!"
-                                            self.servicesArray = result;
 
-//                                            NSDictionary *dictionary = result[0];
-//
-//                                            NSString *s = [dictionary objectForKey:@"matches"];
+                                            self.servicesArray = result;
 
                                             [self.servicesTableView reloadData];
                                         }
@@ -69,12 +55,8 @@
                            withParameters:@{}
                                     block:^(NSArray *result, NSError *error) {
                                         if (!error) {
-                                            // result is @"Hello world!"
-                                            self.servicesArray = result;
 
-                                            //                                            NSDictionary *dictionary = result[0];
-                                            //
-                                            //                                            NSString *s = [dictionary objectForKey:@"matches"];
+                                            self.servicesArray = result;
                                             
                                             [self.servicesTableView reloadData];
                                         }
@@ -93,12 +75,12 @@
 }
 
 //tells the table view how many cells there will be
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.servicesArray.count;
 }
 
 //fills the cells to with the info and images from the parse
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     ServiceCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
 
@@ -113,7 +95,7 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
       //  [self performSegueWithIdentifier:@"detailSegue" sender:self];
 }
@@ -150,7 +132,7 @@
     }
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"detailSegue"]) {
 
         DetailViewController *vc = segue.destinationViewController;
@@ -161,8 +143,8 @@
     }
 }
 
--(IBAction)unwindFromPost:(UIStoryboardSegue *) segue{}
+-(IBAction)unwindFromPost:(UIStoryboardSegue *) segue {}
 
--(IBAction)unwindFromDetail:(UIStoryboardSegue *) segue{}
+-(IBAction)unwindFromDetail:(UIStoryboardSegue *) segue {}
 
 @end

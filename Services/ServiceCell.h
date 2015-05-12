@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ServiceCell : UITableViewCell
+
 @property (strong, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (strong, nonatomic) IBOutlet UILabel *cityLabel;
 @property (strong, nonatomic) IBOutlet UILabel *matchesLabel;

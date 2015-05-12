@@ -30,7 +30,7 @@
 
 #pragma mark - UI Methods
 //resigns the keyboard when the user presses the return key
--(BOOL)textFieldShouldReturn:(UITextField *)textField{
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
 
     [self.userNameTextField resignFirstResponder];
 
@@ -39,7 +39,7 @@
     return YES;
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated {
 
     self.navigationController.navigationBarHidden = YES;
 
@@ -68,18 +68,8 @@
             [self performSegueWithIdentifier:@"servicesSegue" sender:self];
         }
     }];
-
-//    [PFFacebookUtils logInInBackgroundWithPublishPermissions:@[ @"publish_actions" ] block:^(PFUser *user, NSError *error) {
-//        if (!user) {
-//            NSLog(@"Uh oh. The user cancelled the Facebook login.");
-//        } else {
-//            NSLog(@"User now has publish permissions!");
-//            [self performSegueWithIdentifier:@"servicesSegue" sender:self];
-//        }
-//    }];
-
 }
 
--(IBAction)unwindFromSettings:(UIStoryboardSegue *) segue{}
+-(IBAction)unwindFromSettings:(UIStoryboardSegue *) segue {}
 
 @end

@@ -24,7 +24,6 @@
 
     self.navigationItem.title = @"Details";
 
-   // NSLog(@"%@", self.infoDictionary);
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:25.f/255 green:116.f/255 blue:119.f/255 alpha:1];
@@ -87,7 +86,8 @@
 
 
     } else {
-    [PFCloud callFunctionInBackground:@"wantsMatch"
+
+        [PFCloud callFunctionInBackground:@"wantsMatch"
                        withParameters:@{@"category" : category, @"city" : city}
                                 block:^(NSArray *result, NSError *error) {
                                     if (!error) {
@@ -120,17 +120,17 @@
     }
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = NO;
-
 }
+
 //tells the table view how many cells there will be
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.matchesArray.count;
 }
 
 //fills the cells to with the info and images from the parse
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
    DetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
 
@@ -143,9 +143,8 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    //  [self performSegueWithIdentifier:@"detailSegue" sender:self];
 }
 
 @end
